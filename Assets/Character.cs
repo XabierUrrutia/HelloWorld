@@ -6,8 +6,8 @@ public abstract class Character
 {
     public string name;
     private int healthPoints  = 100;
-    //int vida { get; set; }
-    //bool alive { get; set; }
+    int vida { get; set; }
+    bool alive { get; set; }
 
     public Character(string s)
     {
