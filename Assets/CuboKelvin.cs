@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuboKelvin : MonoBehaviour
+public class CuboKelvin : MonoBehaviour
 {
-    private Transform transformacion;
+    private GameObject otherObject;
+    public Vector3 posicion;
     // Start is called before the first frame update
     void Start()
     {
-        transformacion = this.GetComponent<Transform>();
+        otherObject = GameObject.Find("Cube");
     }
 
     // Update is called once per frame
     void Update()
     {
-       // Debug.LogFormat("La transformascion del objeto es: ", transformacion.localPosition(x));
+       //Debug.LogFormat("La transformascion del objeto es: " + otherObject.transfom.position);
     }
 }
