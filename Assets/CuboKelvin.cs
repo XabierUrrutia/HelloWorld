@@ -14,6 +14,6 @@ public class BuboKelvin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.LogFormat("La transformascion del objeto es: ", transformacion.localPosition(x))
+       // Debug.LogFormat("La transformascion del objeto es: ", transformacion.localPosition(x));
     }
 }
