@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class logPosition : MonoBehaviour
 {
-    private int velocidad = 1;
-    private float posX = 0, posY = 1, posZ = 0, escX = 2, escY = 2, escZ = 2;
+    public float velocidad = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +16,7 @@ public class logPosition : MonoBehaviour
     void Update()
     {
         CheckMovement();
+        checkRotation();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             
@@ -31,54 +31,53 @@ public class logPosition : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            posZ = transform.position.z + velocidad;
+            //posZ = transform.position.z + velocidad;
+            transform.position += Vector3.up*velocidad;
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            posZ = transform.position.z - velocidad;
+            //posZ = transform.position.z - velocidad;
+            transform.position += Vector3.down * velocidad;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            posX = transform.position.x - velocidad;
+            //posX = transform.position.x - velocidad;
+            transform.position += Vector3.left * velocidad;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            posX = transform.position.x + velocidad;
+            //posX = transform.position.x + velocidad;
+            transform.position += Vector3.right * velocidad;
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            escY = transform.localScale.y + velocidad;
+            transform.localScale += Vector3.up;
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            escX = transform.localScale.x + velocidad;
+            transform.localScale += Vector3.right;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            escZ = transform.localScale.z + velocidad;
+            transform.localScale += Vector3.left;
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            escY = transform.localScale.y - velocidad;
+            transform.localScale += Vector3.down;
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            escX = transform.localScale.x - velocidad;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            escZ = transform.localScale.z - velocidad;
-        }
-
-        this.transform.position = new Vector3(posX, posY, posZ);
-        this.transform.localScale = new Vector3(escX, escY, escZ);
+      
+ 
+       
+    }
+    private void checkRotation()
+    {
+        this.transform.rotation *= Quaternion.Euler(0, 1, 0);
     }
 }
